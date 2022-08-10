@@ -22,13 +22,13 @@ let capitalizedComputerSelection = computerSelection[0].toUpperCase() + computer
 
 function playRound(playerSelection, computerSelection) {
     if (playerSelection === computerSelection) {
-        console.log("Game tied!");
+        alert("Game tied!");
     } else if (getAdjustedPlayerSelectionIndex === getComputerChoiceIndex) {
-        console.log(`You win! ${capitalizedPlayerSelection} beats ${capitalizedComputerSelection}.`);
+        alert(`You win! ${capitalizedPlayerSelection} beats ${capitalizedComputerSelection}.`);
     } else if (getPlayerSelectionIndex === 0 && getComputerChoiceIndex === 2) {
-        console.log(`You win! ${capitalizedPlayerSelection} beats ${capitalizedComputerSelection}.`)
+        alert(`You win! ${capitalizedPlayerSelection} beats ${capitalizedComputerSelection}.`);
     } else {
-        console.log(`You lose. ${capitalizedComputerSelection} beats ${capitalizedPlayerSelection}.`);
+        alert(`You lose. ${capitalizedComputerSelection} beats ${capitalizedPlayerSelection}.`);
     }
 
 };
