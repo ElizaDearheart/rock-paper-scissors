@@ -17,16 +17,18 @@ console.log(playerSelection);
 let getComputerChoiceIndex = handOptions.indexOf(computerSelection);
 let getPlayerSelectionIndex = (handOptions.indexOf(playerSelection));
 let getAdjustedPlayerSelectionIndex = (handOptions.indexOf(playerSelection)) - 1;
+let capitalizedPlayerSelection = playerSelection[0].toUpperCase() + playerSelection.slice(1).toLowerCase()
+let capitalizedComputerSelection = computerSelection[0].toUpperCase() + computerSelection.slice(1).toLowerCase()
 
 function playRound(playerSelection, computerSelection) {
     if (playerSelection === computerSelection) {
         console.log("Game tied!");
     } else if (getAdjustedPlayerSelectionIndex === getComputerChoiceIndex) {
-        console.log("You win.");
+        console.log(`You win! ${capitalizedPlayerSelection} beats ${capitalizedComputerSelection}.`);
     } else if (getPlayerSelectionIndex === 0 && getComputerChoiceIndex === 2) {
-        console.log("You win.")
+        console.log(`You win! ${capitalizedPlayerSelection} beats ${capitalizedComputerSelection}.`)
     } else {
-        console.log("You lose.");
+        console.log(`You lose. ${capitalizedComputerSelection} beats ${capitalizedPlayerSelection}.`);
     }
 
 };
