@@ -33,46 +33,38 @@ function playRound() {
     if (playerSelection === computerSelection) {
         alert("Game tied!");
         gameCount += 1;
-        newRound();
+
 
     } else if (getAdjustedPlayerSelectionIndex === getComputerChoiceIndex) {
         alert(`You win! ${capitalizedPlayerSelection} beats ${capitalizedComputerSelection}.`);
         gameCount += 1;
         playerWinCount += 1;
-        newRound();
+
 
     } else if (getPlayerSelectionIndex === 0 && getComputerChoiceIndex === 2) {
         alert(`You win! ${capitalizedPlayerSelection} beats ${capitalizedComputerSelection}.`);
         gameCount += 1;
         playerWinCount += 1;
-        newRound();
+
 
     } else {
         alert(`You lose. ${capitalizedComputerSelection} beats ${capitalizedPlayerSelection}.`);
         gameCount += 1;
         computerWinCount += 1;
-        newRound();
+
     }
 };
 
-// keeps track of number of rounds to play new game
-function newRound() {
-    if (gameCount < 5) {
+function game() {
+    for (let i = gameCount; i < 5; i++) {
         playRound()
-    } else {
+    }
+    if (gameCount = 5) {
         if (playerWinCount > computerWinCount) {
             alert('Game over. Player wins.')
         } else {
             alert('Game over. Computer wins.')
         }
-    }
-}
-
-//game function plays five rounds of playRound
-
-function game() {
-    for (let i = gameCount; i < 5; i++) {
-        playRound()
     }
 };
 
