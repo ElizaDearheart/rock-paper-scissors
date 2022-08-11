@@ -9,17 +9,20 @@ console.log(computerSelection);
 
 //playerSelection
 let playerInput = prompt(`Please choose ${handOptions.join(", ")}.`);
-var playerSelection = playerInput.toLowerCase();
+let playerSelection = playerInput.toLowerCase();
 console.log(playerSelection);
 
-//playRound(playerSelection, computerSelection), 
-//returns the winner of the round and what beat what.
+//get index positions for player and computer
 let getComputerChoiceIndex = handOptions.indexOf(computerSelection);
 let getPlayerSelectionIndex = (handOptions.indexOf(playerSelection));
+//adjust player index down one to determine if guess wins
 let getAdjustedPlayerSelectionIndex = (handOptions.indexOf(playerSelection)) - 1;
+//capitalize words for player messages
 let capitalizedPlayerSelection = playerSelection[0].toUpperCase() + playerSelection.slice(1).toLowerCase()
 let capitalizedComputerSelection = computerSelection[0].toUpperCase() + computerSelection.slice(1).toLowerCase()
 
+//playRound(playerSelection, computerSelection), 
+//returns the winner of the round and what beat what.
 function playRound(playerSelection, computerSelection) {
     if (playerSelection === computerSelection) {
         alert("Game tied!");
