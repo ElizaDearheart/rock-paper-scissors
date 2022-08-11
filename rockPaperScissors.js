@@ -1,15 +1,8 @@
 let handOptions = ["rock", "paper", "scissors"];
 
 let gameCount = 0
-
-// keeps track of number of rounds to play new game
-function newRound() {
-    if (gameCount < 5) {
-        playRound()
-    } else {
-        alert('game over')
-    }
-}
+let playerWinCount = 0
+let computerWinCount = 0
 
 //playRound(playerSelection, computerSelection), 
 //returns the winner of the round and what beat what.
@@ -45,23 +38,35 @@ function playRound() {
     } else if (getAdjustedPlayerSelectionIndex === getComputerChoiceIndex) {
         alert(`You win! ${capitalizedPlayerSelection} beats ${capitalizedComputerSelection}.`);
         gameCount += 1;
+        playerWinCount += 1;
         newRound();
 
     } else if (getPlayerSelectionIndex === 0 && getComputerChoiceIndex === 2) {
         alert(`You win! ${capitalizedPlayerSelection} beats ${capitalizedComputerSelection}.`);
         gameCount += 1;
+        playerWinCount += 1;
         newRound();
 
     } else {
         alert(`You lose. ${capitalizedComputerSelection} beats ${capitalizedPlayerSelection}.`);
         gameCount += 1;
+        computerWinCount += 1;
         newRound();
     }
-    console.log(playRound());
 };
 
-
-
+// keeps track of number of rounds to play new game
+function newRound() {
+    if (gameCount < 5) {
+        playRound()
+    } else {
+        if (playerWinCount > computerWinCount) {
+            alert('Game over. Player wins.')
+        } else {
+            alert('Game over. Computer wins.')
+        }
+    }
+}
 
 //game function plays five rounds of playRound
 
@@ -69,14 +74,8 @@ function game() {
     for (let i = gameCount; i < 5; i++) {
         playRound()
     }
-
-
 };
 
+(game())
 
-console.log(gameCount)
-console.log(game())
-console.log(getComputerChoiceIndex);
-console.log(getPlayerSelectionIndex);
-console.log(getAdjustedPlayerSelectionIndex);
 
