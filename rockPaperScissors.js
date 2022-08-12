@@ -41,7 +41,7 @@ function playRound() {
         playerWinCount += 1;
 
 
-    } else if (getPlayerSelectionIndex === 0 && getComputerChoiceIndex === 2) {
+    } else if (getPlayerSelectionIndex === 0 && getComputerChoiceIndex === handOptions.length - 1) {
         alert(`You win! ${capitalizedPlayerSelection} beats ${capitalizedComputerSelection}.`);
         gameCount += 1;
         playerWinCount += 1;
