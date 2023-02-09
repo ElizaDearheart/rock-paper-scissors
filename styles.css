@@ -14,4 +14,13 @@ button {
     background-color: #3882F6;
     color: whitesmoke;
     font-size: medium;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.container {
+    flex: auto;
+    border: 1px;
+    font-weight: bold;
+    color: purple;
 }
