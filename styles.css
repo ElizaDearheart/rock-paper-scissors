@@ -1,0 +1,17 @@
+h1 {
+    color: plum;
+    font-size: 60px;
+}
+
+p {
+    color: darkmagenta;
+}
+
+button {
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-weight: bold;
+    background-color: #3882F6;
+    color: whitesmoke;
+    font-size: medium;
+}

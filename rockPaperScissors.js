@@ -1,65 +1,78 @@
-let handOptions = ["rock", "paper", "scissors"];
+let playerChoice;
 
-let gameCount = 0
-let playerWinCount = 0
-let computerWinCount = 0
+document.getElementById('rock').onclick = playRound;
+document.getElementById('paper').onclick = playRound;
+document.getElementById('scissors').onclick = playRound;
 
-//playRound(playerSelection, computerSelection), 
-//returns the winner of the round and what beat what.
+let gameCount = 0;
+let playerWinCount = 0;
+let computerWinCount = 0;
+
+let computerHandOptions = ["rock", "paper", "scissors"];
+
 function playRound() {
 
-    //getComputerChoice 
-    let getComputerChoice = Math.floor(Math.random() * handOptions.length);
+    let playerChoice = this.id;
+
+    let getComputerChoice = Math.floor(Math.random() * computerHandOptions.length);
     //convert to computerSelection
-    let computerSelection = handOptions[getComputerChoice].toLowerCase();
+    let computerSelection = computerHandOptions[getComputerChoice];
+
+    alert("Player: " + playerChoice);
+    console.log(playerChoice)
+    alert("Computer: " + computerSelection);
     console.log(computerSelection);
 
-    //playerSelection
-    let playerInput = prompt(`Please choose ${handOptions.join(", ")}.`);
-    let playerSelection = playerInput.toLowerCase();
-    console.log(playerSelection);
+    console.log(compare(playerChoice, computerSelection))
 
-    //get index positions for player and computer
-    let getComputerChoiceIndex = handOptions.indexOf(computerSelection);
-    let getPlayerSelectionIndex = (handOptions.indexOf(playerSelection));
-    //adjust player index down one to determine if guess wins
-    let getAdjustedPlayerSelectionIndex = (handOptions.indexOf(playerSelection)) - 1;
-
-    //capitalize words for player messages
-    let capitalizedPlayerSelection = playerSelection[0].toUpperCase() + playerSelection.slice(1).toLowerCase()
-    let capitalizedComputerSelection = computerSelection[0].toUpperCase() + computerSelection.slice(1).toLowerCase()
-
-
-    if (playerSelection === computerSelection) {
-        alert("Game tied!");
-        gameCount += 1;
-
-
-    } else if (getAdjustedPlayerSelectionIndex === getComputerChoiceIndex) {
-        alert(`You win! ${capitalizedPlayerSelection} beats ${capitalizedComputerSelection}.`);
-        gameCount += 1;
-        playerWinCount += 1;
-
-
-    } else if (getPlayerSelectionIndex === 0 && getComputerChoiceIndex === handOptions.length - 1) {
-        alert(`You win! ${capitalizedPlayerSelection} beats ${capitalizedComputerSelection}.`);
-        gameCount += 1;
-        playerWinCount += 1;
-
-
-    } else {
-        alert(`You lose. ${capitalizedComputerSelection} beats ${capitalizedPlayerSelection}.`);
-        gameCount += 1;
-        computerWinCount += 1;
-
+    function compare(playerChoice, computerSelection) {
+        if (playerChoice === computerSelection) {
+            alert("Round tied.")
+            gameCount += 1;
+            return "Round tied.";
+        }
+        if (playerChoice === "rock") {
+            if (computerSelection === "scissors") {
+                alert("Player wins this round.");
+                gameCount += 1;
+                playerWinCount += 1;
+                return "Player wins this round."
+            } else {
+                alert("Computer wins this round.")
+                gameCount += 1;
+                computerWinCount += 1;
+                return "Computer wins this round."
+            }
+        }
+        if (playerChoice === "paper") {
+            if (computerSelection === "rock") {
+                alert("Player wins this round.");
+                gameCount += 1;
+                playerWinCount += 1;
+                return "Player wins this round."
+            } else {
+                alert("Computer wins this round.")
+                gameCount += 1;
+                computerWinCount += 1;
+                return "Computer wins this round."
+            }
+        }
+        if (playerChoice === "scissors") {
+            if (computerSelection === "paper") {
+                alert("Player wins this round.");
+                gameCount += 1;
+                playerWinCount += 1;
+                return "Player wins this round."
+            } else {
+                alert("Computer wins this round.")
+                gameCount += 1;
+                computerWinCount += 1;
+                return "Computer wins this round."
+            }
+        }
     }
-};
-
-function game() {
-    for (let i = gameCount; i < 5; i++) {
-        playRound()
-    }
-    if (gameCount = 5) {
+    if (gameCount === 5) {
+        gameCount = 0
         if (playerWinCount > computerWinCount) {
             alert('Game over. Player wins.')
         } else {
@@ -68,6 +81,6 @@ function game() {
     }
 };
 
-(game())
+
 
 
